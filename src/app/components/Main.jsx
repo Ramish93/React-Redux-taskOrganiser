@@ -5,6 +5,7 @@ import {ConnectedDashboard} from './Dashboard'
 import {Router, Route} from 'react-router-dom'
 import {history} from '../store/history'
 import {ConnectedNavigation} from './Navigation'
+import {ConnectedTaskDetail} from './TaskDetail'
 
  export const Main = () => (
      //provider to make store available to all children componenets
@@ -16,6 +17,11 @@ import {ConnectedNavigation} from './Navigation'
             <Route exact 
             path='/dashboard'
             render={() => (<ConnectedDashboard/>)}
+            />
+            <Route 
+            exact
+            path='/task/:id'
+            render={({match}) => (<ConnectedTaskDetail match={match}/>)}
             />
             </div>
         </Provider>
